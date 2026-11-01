@@ -1,0 +1,37 @@
+CASAMENTO STÉFANIE E JUAN — REPERTÓRIO CONECTADO AO GOOGLE DOCS
+
+Documento original (fonte principal):
+https://docs.google.com/document/d/145VmYOiV2q1DVNb_8EPpWi0peWxbxS9lBQj45RVUheA/edit?usp=drivesdk
+
+OPÇÃO A — Netlify com Funções (recomendado)
+1. Envie a pasta do site para um repositório GitHub.
+2. No Netlify, crie um projeto a partir desse repositório (Build command: vazio; Publish directory: .; Functions directory: netlify/functions).
+3. Publique. O arquivo netlify.toml já define essas opções.
+4. O site consultará o Google Docs na abertura, no botão ↻ Atualizar e a cada 2 minutos enquanto a aba estiver visível.
+5. Alterou letra/repetição no Google Docs? Salve, volte ao site e pressione ↻ Atualizar.
+6. A exportação de texto exige que o documento esteja acessível por link. Recomendamos permitir leitura (Leitor) a quem tiver o link, não edição para qualquer pessoa.
+
+OPÇÃO B — Qualquer hospedagem estática (inclusive Netlify Drop)
+1. Acesse https://script.google.com e crie um projeto do Apps Script.
+2. Cole o conteúdo de AppsScript-Code.gs e salve.
+3. Implantar > Nova implantação > Aplicativo da Web.
+4. Executar como: Você. Quem tem acesso: Qualquer pessoa.
+5. Autorize, implante e copie o URL terminado em /exec.
+6. Abra o site, clique em ⚙, cole o URL e clique em Salvar e conectar.
+7. Para configurar o URL para todos os músicos, substitua o valor de activeEndpoint no HTML por padrão ou compartilhe o URL de sincronização para cada navegador. (O endereço fica salvo no navegador.)
+
+O site também contém as 9 letras do arquivo recebido e a 10ª música reserva vazia.
+Na ausência de rede ou integração, permanece funcionando com o conteúdo offline.
+Editar letras diretamente no site cria um ajuste local e NÃO altera o Google Docs.
+Use “Restaurar letra do Google Docs” para desfazer o ajuste local.
+
+LEITURA / ACESSIBILIDADE (VERSÃO FINAL)
+- Página principal com fundo branco e letras em cor quase preta; fonte maior e com peso reforçado.
+- Marca-d’água marrom discreta no lado direito, sem prejudicar a leitura.
+- Abra index.html diretamente para usar offline com as nove músicas já cadastradas.
+
+IMPORTANTE PARA A PUBLICAÇÃO
+- Para atualizar o site AUTOMATICAMENTE a partir do Google Docs, prefira publicar o projeto com GitHub + Netlify (opção A).
+- Arrastar o ZIP no Netlify Drop geralmente publica apenas os arquivos estáticos e NÃO configura a função serverless; nesse caso, as letras continuam disponíveis offline, mas a atualização online exige implantar o Apps Script (opção B) e cadastrar o endereço em ⚙.
+- Ao importar atualizações do Google Docs, alterações locais de letra podem prevalecer até usar “Restaurar letra do Google Docs”.
+- Não torne o documento editável para toda a internet: controle edição por usuário e conceda leitura pública somente se desejar sincronização pela função Netlify.
